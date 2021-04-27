@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import MovieCard from "./MovieCard";
+//checks
+var filter = require("leo-profanity");
 
 export default function SearchMovies() {
   //states- input query, movies
@@ -34,7 +36,11 @@ export default function SearchMovies() {
           name="query"
           placeholder="e.g. Jurassic Park"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => if (!filter.check(e.target.value)) {
+                        setQuery(e.target.value);
+                     } else {
+                        setQuery("");
+                     }}
         />
         <button className="button" type="submit">
           Search
