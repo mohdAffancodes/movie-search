@@ -36,11 +36,13 @@ export default function SearchMovies() {
           name="query"
           placeholder="e.g. Jurassic Park"
           value={query}
-          onChange={(e) => {if (!filter.check(e.target.value)) {
-                        setQuery(e.target.value);
-                     } else {
-                        setQuery("");
-                     }}}
+          onChange={(e) => {
+            if (!filter.check(e.target.value)) {
+               setQuery(e.target.value);
+            } else {
+               setQuery("");
+            }
+          }}
         />
         <button className="button" type="submit">
           Search
